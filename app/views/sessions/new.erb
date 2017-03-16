@@ -1,0 +1,21 @@
+<% if @errors %>
+   <div class="error_container">
+       <p><strong> There be problem</strong></p>
+       <% @errors.each do |error| %>
+         <p><%= error %></p>
+       <% end %>
+   </div>
+<% end %>
+
+<h1>log the fuck in</h1>
+<form action="/sessions" method="post">
+  <label for="username">Username:</label>
+  <input type="text" name="username" />
+  <br>
+
+  <label for="password">Password:</label>
+  <input type="password" name="password" />
+  <br>
+
+  <input type="submit" value="Login">
+</form>
