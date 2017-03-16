@@ -43,7 +43,7 @@
             <entry file="file://$PROJECT_DIR$/db/migrate/20170316113442_votes.rb">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="76">
-                  <caret line="4" column="37" lean-forward="true" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+                  <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
@@ -53,7 +53,7 @@
             <entry file="file://$PROJECT_DIR$/db/migrate/20170316115614_answers.rb">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
-                  <caret line="0" column="39" lean-forward="true" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+                  <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -63,7 +63,7 @@
             <entry file="file://$PROJECT_DIR$/db/migrate/20170316120548_comments.rb">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="38">
-                  <caret line="2" column="33" lean-forward="true" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+                  <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
@@ -107,7 +107,7 @@
             <entry file="file://$PROJECT_DIR$/app/models/comment.rb">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="190">
-                  <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                  <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -117,7 +117,7 @@
             <entry file="file://$PROJECT_DIR$/app/models/vote.rb">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="171">
-                  <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                  <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -152,10 +152,10 @@
         <option value="$PROJECT_DIR$/db/migrate/20170316115614_answers.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170316120548_comments.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/models/vote.rb" />
         <option value="$PROJECT_DIR$/app/models/question.rb" />
         <option value="$PROJECT_DIR$/app/models/answer.rb" />
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
+        <option value="$PROJECT_DIR$/app/models/vote.rb" />
       </list>
     </option>
   </component>
@@ -535,12 +535,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489679436037</updated>
-      <workItem from="1489679437323" duration="6190000" />
+      <workItem from="1489679437323" duration="6242000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6190000" />
+    <option name="totallyTimeSpent" value="6242000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -695,7 +695,7 @@
     <entry file="file://$PROJECT_DIR$/db/migrate/20170316113442_votes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="37" lean-forward="true" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -703,7 +703,7 @@
     <entry file="file://$PROJECT_DIR$/db/migrate/20170316115614_answers.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="39" lean-forward="true" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -711,7 +711,7 @@
     <entry file="file://$PROJECT_DIR$/db/migrate/20170316120548_comments.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="2" column="33" lean-forward="true" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -759,7 +759,7 @@
     <entry file="file://$PROJECT_DIR$/app/models/comment.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -767,7 +767,7 @@
     <entry file="file://$PROJECT_DIR$/app/models/vote.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
