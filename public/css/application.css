@@ -1,0 +1,39 @@
+.container {
+    margin: 20px auto;
+    width: 600px;
+    padding: 0px 20px 20px 20px;
+    border: 2px solid black;
+    background: rgba(192, 192, 192, 0.7)
+  }
+
+.error_container {
+    margin: 20px auto;
+    width: 600px;
+    padding: 0px 20px 20px 20px;
+    border: 2px solid red;
+    background: rgba(192, 120, 0, 0.7)
+  }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+ol {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
