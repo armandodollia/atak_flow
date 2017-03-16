@@ -6,4 +6,19 @@ class Vote < ActiveRecord::Base
   validates :user_id, presence: true
   validates :votable_id, presence: true
   validates :votable_type, presence: true
+
+  def question
+    return self.commentable if self.commentable_type == "Question"
+    nil
+  end
+
+  def answer
+    return self.commentable if self.commentable_type == "Answer"
+    nil
+  end
+
+  def comment
+    return self.commentable if self.commentable_type == "Comment"
+    nil
+  end
 end
