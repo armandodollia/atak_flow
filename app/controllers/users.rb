@@ -9,7 +9,6 @@ end
 
 get '/users/new' do
  erb :'/users/new'
- puts "register page"
 end
 
 
@@ -27,7 +26,6 @@ post '/users' do
   else
     @errors = user.errors.full_messages
     erb :'users/new'
-    puts "register page with errors"
   end
 end
 
@@ -37,7 +35,6 @@ end
 get '/users/:user_id' do
     if authorized?(params[:user_id])
       erb :'users/show'
-      "user home page"
     else
       redirect "/users/#{current_user.id}"
     end

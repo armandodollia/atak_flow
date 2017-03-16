@@ -21,7 +21,6 @@ post '/sessions' do
     @errors = ['Invalid username or password.']
 
     erb :'sessions/new' #/login
-    puts "erb with errors"
   end
 end
 
