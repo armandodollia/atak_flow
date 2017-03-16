@@ -4,5 +4,5 @@ class Vote < ActiveRecord::Base
   validates :votable_id, presence: true
   validates :votable_type, presence: true
   
-  belongs_to :voter, class: :User
+  belongs_to :voter, class_name: :User
 end

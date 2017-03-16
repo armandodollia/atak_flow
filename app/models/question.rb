@@ -3,5 +3,5 @@ class Question < ActiveRecord::Base
   validates :body, presence: true
   validates :user_id, presence: true
   
-  belongs_to :user
+  belongs_to :asker, class_name: :User
 end
