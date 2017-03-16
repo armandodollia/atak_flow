@@ -2,8 +2,8 @@
 #alias for /register
 
 before '/users/*' do
-  if logged_in?
-    redirect "/users/#{current_user.id}"
+  if !logged_in?
+    redirect "/sessions/new"
   end
 end
 
