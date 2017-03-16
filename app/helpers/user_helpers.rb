@@ -4,7 +4,7 @@ helpers do
   end
 
   def authorized?(arg_id)
-    session[:user_id] == arg_id
+    session[:user_id] == arg_id.to_i
   end
 
   def current_user
