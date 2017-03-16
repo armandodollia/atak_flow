@@ -2,13 +2,14 @@
 #alias for /register
 
 before '/users/*' do
-  if !logged_in?
-    redirect "/sessions/new"
+  if logged_in?
+    redirect "/users/#{current_user.id}"
   end
 end
 
 get '/users/new' do
  erb :'/users/new'
+ puts "register page"
 end
 
 
@@ -18,16 +19,15 @@ end
 
 post '/users' do
   user = User.new(params[:user])
-  if !logged_in?
-    if user.save
-      session[:user_id] = user.id
-      redirect "/"
-    else
-      @errors = user.errors.full_messages
-      erb :'users/new'
-    end
-  else
+  redirect "/" if logged_in?
+
+  if user.save
+    session[:user_id] = user.id
     redirect "/"
+  else
+    @errors = user.errors.full_messages
+    erb :'users/new'
+    puts "register page with errors"
   end
 end
 
@@ -37,7 +37,8 @@ end
 get '/users/:user_id' do
     if authorized?(params[:user_id])
       erb :'users/show'
+      "user home page"
     else
-      redirect "users/#{current_user.id}"
+      redirect "/users/#{current_user.id}"
     end
 end
