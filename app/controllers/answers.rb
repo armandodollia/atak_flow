@@ -15,15 +15,11 @@ get '/answers/:answer_id/comments/new' do
 end
 
 post '/answers/:answer_id/comments' do
-  new_comment = Comment.new(body: params[:body],
-                            user_id: current_user.id,
-                            commentable_id: params[:answer_id],
-                            commentable_type: "Answer")
-
-  if new_comment.save
-    redirect "/answers/#{params[:answer_id]}"
+  new_comment = Answer.find(params[:answer_id]).comments.new(body: params[:body], user_id: current_user.id)
+   if new_comment.save
+    redirect "/questions/#{params[:answer_id]}"
   else
     @errors = ["Body cannot be blankeroonie"]
-    status 422
+    erb :'/comments/new'
   end
 end

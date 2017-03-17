@@ -10,9 +10,12 @@ end
 
 get '/questions/:question_id/comments' do
   @question = current_question(params[:question_id])
-  @path = "/questions/#{@question.id}/comments/new"
   @comments = @question.comments
-  erb :'/comments/index'
+  if request.xhr?
+    erb :'comments/_index', layout: false
+  else
+    erb :'/comments/index'
+  end
 end
 
 get '/questions/:question_id/comments/new' do
