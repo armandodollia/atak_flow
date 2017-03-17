@@ -1,10 +1,10 @@
-<div class="container hoverable">
+<div id = "comment-box" class="container hoverable">
   <h1><%= @question.title  %></h1>
   <p><%= @question.asker.username %> asked: </p> <br>
   <p><%= @question.body %></p>
   <span class="new badge green" data-badge-caption="points"><%= points(@question) %></span>
   <% if !@question.comments.empty? %>
-    <a href="/questions/<%= @question.id %>/comments">Show Comments</a>
+    <a class = 'comment-link' href="/questions/<%= @question.id %>/comments">Show Comments</a>
   <% else %>
     <p>no comments</p>
   <% end %>
