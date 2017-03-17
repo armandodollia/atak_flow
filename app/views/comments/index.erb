@@ -1,0 +1,6 @@
+<h1><%= @question.title %></h1>
+<% @comments.each do |comment| %>
+  <div class="container">
+    <h1><%= comment.title  %></h1>
+    <p><%= comment.body %></p>
+  </div>

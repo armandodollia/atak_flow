@@ -20,21 +20,22 @@
   -->
   <script src="/js/application.js"></script>
 
-  <title></title>
-</head>
-<body>
-  <nav>
-  <a href="/">home</a>
-  <% if logged_in? %>
-    <form method="post" action="/sessions">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Logout" class="button">
-    </form>
-  <% else %>
-    <a href="/sessions/new">login</a>
-    <a href="/users/new">register</a>
-  <% end %>
-</nav>
-  <%= yield %>
-</body>
+  <title>Fat Stack Overflow</title>
+  </head>
+    <nav id="banner">
+      <a href="/">home</a>
+      <% if logged_in? %>
+        <form class="logout" method="post" action="/sessions">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Logout" class="text_button">
+        </form></li>
+      <% else %>
+        <a href="/sessions/new">login</a>
+        <a href="/users/new">register</a>
+      <% end %>
+    </nav>
+  <body>
+
+    <%= yield %>
+  </body>
 </html>
