@@ -4,9 +4,13 @@
   <% else %>
     <div class="container hoverable">
   <% end %>
-    <article id="<%= question.id %>">
-      <span class="new badge green" data-badge-caption="points"><%= points(question) %></span>
-      <h3 class="black-text"><a href="/questions/<%= question.id %>"><%= question.title %></a></h3>
+    <article id="<%= question.id %>" class="row">
+      <h3 class="card brown lighten-2 col s11 center">
+          <a class="black-text" href="/questions/<%= question.id %>"><%= question.title %></a>
+      </h3>
+      <div>
+        <span class="new badge green" data-badge-caption="points"><%= points(question) %></span>
+      </div>
     </article>
     <div class="row">
       <p class="col s2"><%= question.comments.count %> Comments</p>

@@ -1,18 +1,20 @@
 <div class ="container hoverable">
   <% if @question %>
     <h3> Comments for "<%= @question.title %>"</h3>
+     <a href="/questions/:question_id/comments/new"></a>
   <% else %>
     <h3> Comments for <%= @answer.answerer.username %>s answer</h3>
   <% end %>
 </div><br>
 
-<% @comments.each do |comment| %>
-  <div class="container hoverable">
-    <p><%= comment.body %></p>
-    <span class="badge"><%= points(comment) %> points</span>
-  </div><br>
-<% end %>
-
-  <div class="container hoverable">
-
+<div id="comments-list">
+  <% @comments.each do |comment| %>
+    <div class="container hoverable">
+      <p><%= comment.body %></p>
+      <span class="badge"><%= points(comment) %> points</span>
+    </div><br>
+  <% end %>
+</div>
+<div class="center">
+  <a id="new_comment_button" class="waves-effect waves-light btn green" href="<%= @path %>"><i class="material-icons left">comment</i>New Comment</a>
 </div>
