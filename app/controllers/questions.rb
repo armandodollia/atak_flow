@@ -26,11 +26,10 @@ end
 
 post '/questions/:question_id/comments' do
   @post_path = "/questions/#{params[:question_id]}/comments"
-  new_comment = Comment.new(body: params[:body],
-                            user_id: current_user.id,
-                            commentable_id: params[:question_id],
-                            commentable_type: "Question")
+  new_comment = current_question(params[:question_id]).comments.new(body: params[:body], user_id: current_user.id)
+
   if new_comment.save
+    p "hi"
     redirect "/questions/#{params[:question_id]}"
   else
     @errors = ["Body cannot be blankeroonie"]
