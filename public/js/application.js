@@ -1,8 +1,12 @@
 $(document).ready(function () {
-  // PSEUDO-CODE:
-  //   1- intercept the form submission event using jQuery
-  //   2- prevent the default action for that event from happening
-  //   3- use jQuery to submit an AJAX post to the form's action
-  //   4- when the AJAX post is done, display the new die roll using jQuery
+  $("#new_comment_button").on("click", function(){
+    $("#new_comment_button").hide();
+    $("#new_comment_form").fadeIn("slow");
+ })
 
+  $("#new_comment_form").on("submit", function(event){
+    event.preventDefault();
+    $("#new_comment_form").hide().trigger('reset');
+    $("#new_comment_button").fadeIn("slow");
+  })
 });

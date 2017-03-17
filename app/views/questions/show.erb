@@ -13,7 +13,8 @@
 <h2>Answers</h2>
 <% @question.answers.each do |answer| %>
   <div class="container hoverable">
-    <p><%= answer.answerer.username %> answered:</p> <br>
+    <p><%= answer.answerer.username %> answered:</p>
+    <br>
     <p><%= answer.body %></p>
     <span class="new badge green" data-badge-caption="points"><%= points(answer) %></span>
     <% if !answer.comments.empty? %>
@@ -24,4 +25,5 @@
      <!--  <a href="/users/<%= answer.answerer.id %>"><%= answer.answerer.username %></a>
      -->
   </div><br>
+  <button id="new_comment_button" action="/answers/<%= answer.id %>/comments/new" class="new-comment-button button center">New Comment</button>
 <% end %>
