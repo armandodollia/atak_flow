@@ -1,18 +1,70 @@
+.nav_home {
+  font-size:19px;
+  color: white;
+}
+.nav_home:hover {
+  text-decoration: underline;
+}
+
+.nav-wrapper{
+   background-color: green;
+}
+
 .container {
-    margin: 20px auto;
-    width: 600px;
+    top: 140px;
+    padding: 20px auto;
+    max-width: 600px;
     padding: 0px 20px 20px 20px;
     border: 2px solid black;
-    background: rgba(192, 192, 192, 0.7)
-  }
+    background: rgba(192, 192, 192, 0.8);
+}
+.solved-container {
+    top: 140px;
+    padding: 20px auto;
+    max-width: 600px;
+    padding: 0px 20px 20px 20px;
+    border: 2px solid black;
+    background: rgba(50, 205, 50, 0.8);
+}
 
 .error_container {
     margin: 20px auto;
     width: 600px;
     padding: 0px 20px 20px 20px;
     border: 2px solid red;
-    background: rgba(192, 120, 0, 0.7)
-  }
+    background: rgba(192, 120, 0, 0.8)
+}
+
+.question_title {
+  display: inline;
+}
+
+.text_button {
+  font-size: 20px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.text_button:hover {
+  text-decoration: underline;
+  -webkit-filter: brightness(115%);
+}
+
+.text_button:focus {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+body {
+  height: 338px;
+  background-image: url(http://stockfresh.com/files/m/michaklootwijk/m/64/2634470_stock-photo-seamlessly-tileable-and-repeatable-5-dollar-bills.jpg);
+  background-position: 0px 0px;
+  background-repeat: repeat;
+}
 
 table {
     font-family: arial, sans-serif;
@@ -34,6 +86,6 @@ ol {
     text-align: center;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
 }

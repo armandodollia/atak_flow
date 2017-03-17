@@ -1,13 +1,19 @@
-<div class="container">
-<h1><%= @question.title  %></h1>
-<p><%= @question.body %></p>
-<a href="/questions/:question_id/comments/new">Show Comments</a>
+<div class="container hoverable">
+  <h1><%= @question.title  %></h1>
+  <p><%= @question.asker.username %> asked: </p> <br>
+  <p><%= @question.body %></p>
+  <span class="new badge green" data-badge-caption="points"><%= points(@question) %></span>
+  <a href="/questions/<%= @question.id %>/comments">Show Comments</a>
 <!-- <a href="/users/<%= @question.asker.id %>"><%= @question.asker.username %></a> -->
 </div>
+<h2>Answers</h2>
 <% @question.answers.each do |answer| %>
-  <div class="container">
-  <p><%= answer.body %></p>
-  <a href="/answers/:answer_id/comments/new">Show Comments</a>
- <!--  <a href="/users/<%= answer.answerer.id %>"><%= answer.answerer.username %></a>
- -->  </div>
+  <div class="container hoverable">
+    <p><%= answer.answerer.username %> answered:</p> <br>
+    <p><%= answer.body %></p>
+    <span class="new badge green" data-badge-caption="points"><%= points(answer) %></span>
+    <a href="/answers/<%= answer.id %>/comments">Show Comments</a>
+     <!--  <a href="/users/<%= answer.answerer.id %>"><%= answer.answerer.username %></a>
+     -->
+  </div><br>
 <% end %>

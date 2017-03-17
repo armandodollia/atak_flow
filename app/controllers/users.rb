@@ -1,14 +1,13 @@
 #pulls up the form for posting, see create_user.rb
 #alias for /register
 
-before '/users/*' do
-  if !logged_in?
-    redirect "/sessions/new"
-  end
+before '/users/new' do
+  redirect "/" if logged_in?
+
 end
 
 get '/users/new' do
- erb :'/users/new'
+  erb :'/users/new'
 end
 
 
@@ -33,9 +32,11 @@ end
 #logged in user is allowed to see their page.
 
 get '/users/:user_id' do
-    if authorized?(params[:user_id])
-      erb :'users/show'
-    else
-      redirect "/users/#{current_user.id}"
-    end
+  return redirect "/sessions/new" if !logged_in?
+
+  if authorized?(params[:user_id])
+    erb :'users/show'
+  else
+    redirect "/users/#{current_user.id}"
+  end
 end

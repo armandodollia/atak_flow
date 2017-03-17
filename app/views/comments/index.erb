@@ -1,0 +1,18 @@
+<div class ="container hoverable">
+  <% if @question %>
+    <h3> Comments for "<%= @question.title %>"</h3>
+  <% else %>
+    <h3> Comments for <%= @answer.answerer.username %>s answer</h3>
+  <% end %>
+</div><br>
+
+<% if !@comments.empty? %>
+  <% @comments.each do |comment| %>
+    <div class="container hoverable">
+      <p><%= comment.body %></p>
+      <span class="badge"><%= points(comment) %> points</span>
+    </div><br>
+  <% end %>
+<% else %>
+<h1 class="container"> no comments yet!</h1>
+<% end %>

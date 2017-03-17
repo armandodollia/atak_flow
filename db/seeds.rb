@@ -9,3 +9,4 @@ votable_types = %w(Question Answer Comment)
                   commentable_type: commentable_types.sample)
   Vote.create!(value: 1, user_id: rand(1..10), votable_id: rand(1..10), votable_type: votable_types.sample)
 end
+Answer.create!(correct: true, body: Faker::ChuckNorris.fact, user_id: rand(1..10), question_id: 1)
