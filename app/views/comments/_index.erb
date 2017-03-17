@@ -1,0 +1,7 @@
+<% @comments.each do |comment| %>
+  <div class="container hoverable">
+    <p><%= comment.body %></p>
+    <span class="badge"><%= points(comment) %> points</span>
+  </div><br>
+<% end %>
+</div>
