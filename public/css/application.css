@@ -1,3 +1,7 @@
+#new_answer_form_container {
+    display: none;
+}
+
 .nav_home {
   font-size:19px;
   color: white;

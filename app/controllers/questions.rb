@@ -16,10 +16,22 @@ end
 
 
 post '/questions/:question_id/answers' do
-  if logged_in?
-    current_question(params[:question_id]).answers.create(body: params[:answer], user_id: current_user.id)
-    redirect back
+  return redirect "questions/#{params[:question_id]}" if !logged_in?
+  new_answer = current_question(params[:question_id]).answers.new(body: params[:answer], user_id: current_user.id)
+  puts "\n" * 20
+  p new_answer
+  if new_answer.save!
+    if request.xhr?
+      erb :'answers/_answer', locals: {answer: new_answer}, layout: false
+    else
+      redirect back
+    end
   else
-    redirect back
+    if request.xhr?
+      status 422
+    else
+      @errors = new_answer.errors.full_messages
+      erb :'questions/show'
+    end
   end
 end
