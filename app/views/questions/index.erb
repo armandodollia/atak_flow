@@ -1,5 +1,9 @@
 <% @questions.each do |question| %>
-  <div class="container hoverable">
+  <% if question.solved? %>
+    <div class="solved-container container hoverable">
+  <% else %>
+    <div class="container hoverable">
+  <% end %>
     <article id="<%= question.id %>">
       <span class="new badge green" data-badge-caption="points"><%= points(question) %></span>
       <h3 class="black-text"><a href="/questions/<%= question.id %>"><%= question.title %></a></h3>
