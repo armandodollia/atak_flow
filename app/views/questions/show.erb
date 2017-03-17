@@ -3,7 +3,11 @@
   <p><%= @question.asker.username %> asked: </p> <br>
   <p><%= @question.body %></p>
   <span class="new badge green" data-badge-caption="points"><%= points(@question) %></span>
-  <a href="/questions/<%= @question.id %>/comments">Show Comments</a>
+  <% if !@question.comments.empty? %>
+    <a href="/questions/<%= @question.id %>/comments">Show Comments</a>
+  <% else %>
+    <p>no comments</p>
+  <% end %>
 <!-- <a href="/users/<%= @question.asker.id %>"><%= @question.asker.username %></a> -->
 </div>
 <h2>Answers</h2>
@@ -12,7 +16,11 @@
     <p><%= answer.answerer.username %> answered:</p> <br>
     <p><%= answer.body %></p>
     <span class="new badge green" data-badge-caption="points"><%= points(answer) %></span>
-    <a href="/answers/<%= answer.id %>/comments">Show Comments</a>
+    <% if !answer.comments.empty? %>
+      <a href="/answers/<%= answer.id %>/comments">Show Comments</a>
+    <% else %>
+      <p>no comments</p>
+    <% end %>
      <!--  <a href="/users/<%= answer.answerer.id %>"><%= answer.answerer.username %></a>
      -->
   </div><br>
