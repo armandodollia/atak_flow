@@ -11,6 +11,7 @@ end
 get '/questions/:question_id/comments' do
   @question = current_question(params[:question_id])
   @comments = @question.comments
+  @post = "/questions/#{params[:question_id]}/comments/new"
   if request.xhr?
     erb :'/comments/_index', layout: false
   else
