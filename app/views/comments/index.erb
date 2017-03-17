@@ -6,13 +6,13 @@
   <% end %>
 </div><br>
 
-<% if !@comments.empty? %>
-  <% @comments.each do |comment| %>
-    <div class="container hoverable">
-      <p><%= comment.body %></p>
-      <span class="badge"><%= points(comment) %> points</span>
-    </div><br>
-  <% end %>
-<% else %>
-<h1 class="container"> no comments yet!</h1>
+<% @comments.each do |comment| %>
+  <div class="container hoverable">
+    <p><%= comment.body %></p>
+    <span class="badge"><%= points(comment) %> points</span>
+  </div><br>
 <% end %>
+
+  <div class="container hoverable">
+
+</div>
