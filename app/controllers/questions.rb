@@ -10,6 +10,6 @@ end
 
 get '/questions/:question_id/comments' do
   @question = current_question(params[:question_id])
-  @comments = @question
+  @comments = @question.comments
   erb :'/comments/index'
 end

@@ -19,20 +19,30 @@
     our JavaScript / jQuery code
   -->
   <script src="/js/application.js"></script>
+  <!-- MATERIALIZE STYLE SHEETS -->
+   <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
   <title>Fat Stack Overflow</title>
   </head>
-    <nav id="banner">
-      <a href="/">home</a>
-      <% if logged_in? %>
-        <form class="logout" method="post" action="/sessions">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Logout" class="text_button">
-        </form></li>
-      <% else %>
-        <a href="/sessions/new">login</a>
-        <a href="/users/new">register</a>
-      <% end %>
+    <nav>
+      <div class="nav-wrapper">
+          <a class="brand-logo" href="/">Fat Stack Overflow</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if logged_in? %>
+              <li><form method="post" action="/sessions">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Logout" class="text_button">
+              </form></li>
+            <% else %>
+              <li><a href="/sessions/new">Login </a></li>
+              <li><a href="/users/new">Register </a></li>
+            <% end %>
+          </ul>
+      </div>
     </nav>
   <body>
 

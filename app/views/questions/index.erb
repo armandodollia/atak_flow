@@ -1,7 +1,11 @@
 <% @questions.each do |question| %>
-  <article id="<%= question.id %>" class="container">
-    <span class="points"><%= points(question) %></span>
-    <h3 class="question_title"><a href="/questions/<%= question.id %>"><%= question.title %></a></h3>
-
-  </article>
+  <div class="container hoverable">
+    <article id="<%= question.id %>">
+      <span class="new badge green" data-badge-caption="points"><%= points(question) %></span>
+      <h3 class="black-text"><a href="/questions/<%= question.id %>"><%= question.title %></a></h3>
+    </article>
+    <div class="row">
+      <p class="col s1"><%= question.comments.count + question.answers.count %> comments</p>
+    </div>
+  </div> <br>
 <% end %>
