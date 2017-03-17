@@ -1,14 +1,15 @@
 
 <h2 class="card">Question</h2>
-<div id = "comment-box" class="container hoverable">
+<div id="comment-box" class="container hoverable">
   <h1><%= @question.title  %></h1>
-  <p><%= @question.asker.username %> asked: </p> <br>
+  <p><%= @question.asker.username %> asked: </p>
+  <span class="new badge green" data-badge-caption="points"><%= points(@question) %></span> <br>
   <p><%= @question.body %></p>
-  <span class="new badge green" data-badge-caption="points"><%= points(@question) %></span>
+
   <% if !@question.comments.empty? %>
-    <a class = 'comment-link' href="/questions/<%= @question.id %>/comments">Show Comments</a>
+    <a class="comment-link" href="/questions/<%= @question.id %>/comments">Show Comments</a>
   <% else %>
-    <a id="new_comment_button" action="/answers/<%= answer.id %>/comments/new" class="waves-effect waves-light btn green"><i class="material-icons left">comment</i> New Comment</a>
+    <a id="new_comment_button" action="/questions/<%= @question.id %>/comments/new" class="waves-effect waves-light btn green"><i class="material-icons left">comment</i> New Comment</a>
     <p>no comments</p>
   <% end %>
 <!-- <a href="/users/<%= @question.asker.id %>"><%= @question.asker.username %></a> -->
