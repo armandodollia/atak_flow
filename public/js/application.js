@@ -1,9 +1,11 @@
 $(document).ready(function () {
-  // PSEUDO-CODE:
-  //   1- intercept the form submission event using jQuery
-  //   2- prevent the default action for that event from happening
-  //   3- use jQuery to submit an AJAX post to the form's action
-  //   4- when the AJAX post is done, display the new die roll using jQuery
+  $('body').on('click', '#new_answer_title', function (event) {
+    var $answerFormContainer = $('#new_answer_form_container')
+    event.preventDefault()
+    $answerFormContainer.show()
+    $(this).hide()
+  });
+
   $('body').on('click', '.comment-link', function(event){
     event.preventDefault();
     // debugger
@@ -17,7 +19,23 @@ $(document).ready(function () {
       $commentLink.hide();
       $('#comment-box').append(response);
     });
-
   });
 
+
+  $('body').on('submit', '#new_answer_form', function (event) {
+    var $answerForm = $('#new_answer_form')
+    event.preventDefault()
+
+    $.ajax({
+      url: $answerForm.attr('action'),
+      method: $answerForm.attr('method'),
+      data: $answerForm.serialize()
+    }).done(function (answer) {
+      $('#answers_container').append(answer)
+      $('#new_answer_title').show()
+      $('#new_answer_form_container').hide()
+    }).fail(function () {
+      alert("Please put some text in your answer")
+    });
+  });
 });

@@ -9,26 +9,38 @@
   <% if !@question.comments.empty? %>
     <a class="comment-link" href="/questions/<%= @question.id %>/comments">Show Comments</a>
   <% else %>
-    <a id="new_comment_button" action="/questions/<%= @question.id %>/comments/new" class="waves-effect waves-light btn green"><i class="material-icons left">comment</i> New Comment</a>
+    <a id="new_comment_button" href="/questions/<%= @question.id %>/comments/new" class="waves-effect waves-light btn green"><i class="material-icons left">comment</i> New Comment</a>
     <p>no comments</p>
   <% end %>
 <!-- <a href="/users/<%= @question.asker.id %>"><%= @question.asker.username %></a> -->
 </div>
+
 <h3 class="card center">Answers</h3>
-<% @question.answers.each do |answer| %>
-  <div class="container hoverable">
-    <p><%= answer.answerer.username %> answered:</p>
-    <p><%= answer.body %></p>
-    <span class="new badge green" data-badge-caption="points"><%= points(answer) %></span>
-    <% if !answer.comments.empty? %>
-      <a href="/answers/<%= answer.id %>/comments">Show Comments</a>
-    <% else %>
-      <p>no comments</p>
-      <a id="new_comment_button" action="/answers/<%= answer.id %>/comments/new" class="waves-effect waves-light btn green"><i class="material-icons left">comment</i> New Comment</a>
-    <% end %>
-     <!--  <a href="/users/<%= answer.answerer.id %>"><%= answer.answerer.username %></a>
-     -->
+<div id="answers_container">
+  <% if @errors %>
+      <div class="error_container">
+        <p><strong> There be problem</strong></p>
+        <% @errors.each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+      </div>
+  <% end %>
+  <br>
+  <% @question.answers.each do |answer| %>
+    <%= erb :'answers/_answer', locals: {answer: answer} %>
+  <% end %>
+</div>
 
-  </div><br>
-
-<% end %>
+<div class="center">
+  <h4 id="new_answer_title" class=" waves-effect waves-light btn-large">Post Answer</h4>
+</div>
+<div id='new_answer_form_container' class="container hoverable">
+  <% if logged_in? %>
+      <form id='new_answer_form' action='/questions/<%= @question.id %>/answers' method="post">
+        <input type="text" name="answer">
+        <input class="waves-effect waves-light btn" type="submit" value="Submit">
+      </form>
+  <% else %>
+      <p>You must be logged in to make a post</p>
+  <% end %>
+</div>
