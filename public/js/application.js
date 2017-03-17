@@ -6,13 +6,27 @@ $(document).ready(function () {
     $(this).hide()
   });
 
+  $('body').on('click', '.comment-link', function(event){
+    event.preventDefault();
+    // debugger
+    var url = $(this).attr('href');
+    var $commentLink = $(this);
+    $.ajax({
+      url: url,
+      type: 'GET',
+    })
+    .done(function(response) {
+      $commentLink.hide();
+      $('#comment-box').append(response);
+    });
+  });
+
+
   $('body').on('submit', '#new_answer_form', function (event) {
     var $answerForm = $('#new_answer_form')
     event.preventDefault()
 
-
     $.ajax({
-      // url: '/questions/'+ '8' +'/answers',
       url: $answerForm.attr('action'),
       method: $answerForm.attr('method'),
       data: $answerForm.serialize()
