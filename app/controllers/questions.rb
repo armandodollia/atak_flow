@@ -29,7 +29,6 @@ post '/questions/:question_id/comments' do
   new_comment = current_question(params[:question_id]).comments.new(body: params[:body], user_id: current_user.id)
 
   if new_comment.save
-    p "hi"
     redirect "/questions/#{params[:question_id]}"
   else
     @errors = ["Body cannot be blankeroonie"]
