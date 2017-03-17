@@ -5,7 +5,8 @@
       <h3 class="black-text"><a href="/questions/<%= question.id %>"><%= question.title %></a></h3>
     </article>
     <div class="row">
-      <p class="col s1"><%= question.comments.count + question.answers.count %> comments</p>
+      <p class="col s2"><%= question.comments.count %> Comments</p>
+      <p class="col s2"><%= question.answers.count %> Answers</p>
     </div>
   </div> <br>
 <% end %>
