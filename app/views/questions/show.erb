@@ -25,3 +25,15 @@
      -->
   </div><br>
 <% end %>
+
+<div class="container hoverable">
+  <h4>Post Answer</h4>
+  <% if logged_in? %>
+      <form action='/questions/<%= @question.id %>/answers' method="post">
+        <input type="text" name="answer">
+        <input type="submit" value="Submit">
+      </form>
+  <% else %>
+      <p>You must be logged in to make a post</p>
+  <% end %>
+</div>

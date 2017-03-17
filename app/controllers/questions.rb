@@ -13,3 +13,13 @@ get '/questions/:question_id/comments' do
   @comments = @question.comments
   erb :'/comments/index'
 end
+
+
+post '/questions/:question_id/answers' do
+  if logged_in?
+    current_question(params[:question_id]).answers.create(body: params[:answer], user_id: current_user.id)
+    redirect back
+  else
+    redirect back
+  end
+end
