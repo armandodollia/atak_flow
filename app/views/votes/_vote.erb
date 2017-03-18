@@ -1,0 +1,17 @@
+<% if current_user.comments[model.id].votes.empty? %>
+    <form action="/<%= model.class.to_s.downcase %>s/<%= model.id %>/votes" method="post">
+<% else %>
+    <form>
+<% end %>
+  <input type="hidden" value="1" name="value">
+  <input type="submit" value="up">
+</form>
+
+<% if current_user.comments[model.id].votes.empty? %>
+    <form action="/<%= model.class.to_s.downcase %>s/<%= model.id %>/votes" method="post">
+<% else %>
+    <form>
+<% end %>
+  <input type="hidden" value="-1" name="value">
+  <input type="submit" value="down">
+</form>

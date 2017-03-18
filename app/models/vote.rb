@@ -21,8 +21,4 @@
     return self.commentable if self.commentable_type == "Comment"
     nil
   end
-  
-  def points
-    
-  end
 end
