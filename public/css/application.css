@@ -64,9 +64,9 @@
 }
 
 body {
-  height: 338px;
-  background-image: url(http://stockfresh.com/files/m/michaklootwijk/m/64/2634470_stock-photo-seamlessly-tileable-and-repeatable-5-dollar-bills.jpg);
-  background-position: 0px 0px;
+  top:0px;
+  left:0px;
+  background-image: url(http://media.boingboing.net/wp-content/uploads/2015/09/o-PILES-OF-AMERICAN-MONEY-facebook.jpg);
   background-repeat: repeat;
 }
 
