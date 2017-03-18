@@ -2,6 +2,7 @@
   <div class="container hoverable">
     <p><%= comment.body %></p>
     <span class="badge"><%= points(comment) %> points</span>
+    <!--passes the comment object into the vote partial to be parsed-->
     <%= erb :'/votes/_vote', locals: {model: comment} %>
   </div><br>
 <% end %>
