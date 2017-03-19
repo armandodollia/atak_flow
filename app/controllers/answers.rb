@@ -2,7 +2,11 @@ get '/answers/:answer_id/comments' do
   @answer = Answer.find(params[:answer_id])
   @path = "/questions/#{@answer.id}/comments/new"
   @comments = @answer.comments
-  erb :'/comments/index'
+  if request.xhr?
+    erb :'/comments/_index', locals: {comments: @comments}, layout: false
+  else
+    erb :'/comments/index'
+  end
 end
 
 get '/answers/:answer_id/comments/new' do

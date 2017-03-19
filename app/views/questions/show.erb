@@ -1,10 +1,10 @@
-
 <h2 class="card">Question</h2>
 <div id="comment-box" class="container hoverable">
   <h1><%= @question.title  %></h1>
   <p><%= @question.asker.username %> asked: </p>
   <span class="new badge green" data-badge-caption="points"><%= points(@question) %></span> <br>
   <p><%= @question.body %></p>
+  <%= erb :'/votes/_vote', locals: {model: @question} %>
 
   <% if !@question.comments.empty? %>
     <a class="comment-link" href="/questions/<%= @question.id %>/comments">Show Comments</a>
@@ -27,7 +27,8 @@
   <% end %>
   <br>
   <% @question.answers.each do |answer| %>
-    <%= erb :'answers/_answer', locals: {answer: answer} %>
+      <%= erb :'answers/_answer', locals: {answer: answer} %>
+
   <% end %>
 </div>
 

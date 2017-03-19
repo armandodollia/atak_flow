@@ -2,11 +2,13 @@
   <p><%= answer.answerer.username %> answered:</p>
   <p><%= answer.body %></p>
   <span class="new badge green" data-badge-caption="points"><%= points(answer) %></span>
+  <%= erb :'/votes/_vote', locals: {model: answer} %>
   <% if !answer.comments.empty? %>
-      <a href="/answers/<%= answer.id %>/comments">Show Comments</a>
+      <a class="comment-link" href="/answers/<%= answer.id %>/comments">Show Comments</a>
   <% else %>
       <p>no comments</p>
-      <a id="new_comment_button" href="/answers/<%= answer.id %>/comments/new" class="waves-effect waves-light btn green"><i class="material-icons left">comment</i> New Comment</a>
+      <a id="new_comment_button" href="/answers/<%= answer.id %>/comments/new" class="waves-effect waves-light btn green">
+        <i class="material-icons left">comment</i> New Comment</a>
   <% end %>
   <!--  <a href="/users/<%= answer.answerer.id %>"><%= answer.answerer.username %></a>
      -->

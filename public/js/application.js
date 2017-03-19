@@ -8,6 +8,7 @@ $(document).ready(function () {
 
   $('body').on('click', '.comment-link', function(event){
     event.preventDefault();
+    var $commentLink = $(this)
     // debugger
     var url = $(this).attr('href');
     var $commentLink = $(this);
@@ -17,7 +18,7 @@ $(document).ready(function () {
     })
     .done(function(response) {
       $commentLink.hide();
-      $('#comment-box').append(response);
+      $commentLink.closest('div').append(response);
     });
   });
 
@@ -25,6 +26,7 @@ $(document).ready(function () {
   $('body').on('submit', '#new_answer_form', function (event) {
     var $answerForm = $('#new_answer_form')
     event.preventDefault()
+
 
     $.ajax({
       url: $answerForm.attr('action'),
@@ -36,6 +38,19 @@ $(document).ready(function () {
       $('#new_answer_form_container').hide()
     }).fail(function () {
       alert("Please put some text in your answer")
+    });
+  });
+
+  $('body').on('submit', '.vote_form', function (event) {
+    event.preventDefault();
+    var $voteForm = $(this)
+
+    $.ajax({
+      url: $voteForm.attr('action'),
+      method: $voteForm.attr('method'),
+      data: $voteForm.serialize()
+    }).done(function (params) {
+      $voteForm.closest('.container').find('span').text(params.points);
     });
   });
 });

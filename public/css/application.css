@@ -2,6 +2,13 @@
     display: none;
 }
 
+.votes {
+    float: right;
+}
+.vote_form {
+    display: inline-block;
+}
+
 .nav_home {
   font-size:19px;
   color: white;
