@@ -6,13 +6,15 @@
        <% end %>
    </div>
 <% end %>
-
 <div class="container">
-  <form id="new_comment_form" class="center hidden" action="<%= @post_path %>" method="POST">
-    <label for="comment_text">Comment:</label>
-    <textarea id="comment_text" name="body"></textarea>
-    <input type="submit" class="button" value="Submit Comment">
-  </form>
+  <% if logged_in? %>
+      <form id="new_comment_form" action="<%= @post_path %>" method="POST">
+        <label for="comment_text">Comment:</label>
+        <textarea id="comment_text" name="body"></textarea>
+        <input type="submit" class="button" value="Submit Comment">
+      </form>
+  <% else %>
+    <p>YOU MUST BE LOGGED IN DUDE</p>
+  <% end %>
 </div>
-
 
