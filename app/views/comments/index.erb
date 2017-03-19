@@ -9,5 +9,5 @@
 
 <div id="comments-list">
   <!--makes comment creation into a partial to DRY up code -->
-  <%= erb :'comments/_index', locals: {comments: comments}%>
+  <%= erb :'comments/_index', locals: {comments: @comments}%>
 </div>

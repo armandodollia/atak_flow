@@ -10,12 +10,12 @@ end
 
 get '/questions/:question_id/comments' do
   @question = current_question(params[:question_id])
-  stuff = @question.comments
+  @comments = @question.comments
   @post = "/questions/#{params[:question_id]}/comments/new"
   if request.xhr?
-    erb :'/comments/_index', locals: {comments: stuff}, layout: false
+    erb :'/comments/_index', locals: {comments: @comments}, layout: false
   else
-    erb :'/comments/index', locals: {comments: stuff}
+    erb :'/comments/index'
   end
 end
 

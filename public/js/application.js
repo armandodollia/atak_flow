@@ -8,6 +8,7 @@ $(document).ready(function () {
 
   $('body').on('click', '.comment-link', function(event){
     event.preventDefault();
+    var $commentLink = $(this)
     // debugger
     var url = $(this).attr('href');
     var $commentLink = $(this);
@@ -17,7 +18,7 @@ $(document).ready(function () {
     })
     .done(function(response) {
       $commentLink.hide();
-      $('#comment-box').append(response);
+      $commentLink.closest('div').append(response);
     });
   });
 
