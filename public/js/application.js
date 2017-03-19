@@ -26,6 +26,7 @@ $(document).ready(function () {
     var $answerForm = $('#new_answer_form')
     event.preventDefault()
 
+
     $.ajax({
       url: $answerForm.attr('action'),
       method: $answerForm.attr('method'),
@@ -36,6 +37,19 @@ $(document).ready(function () {
       $('#new_answer_form_container').hide()
     }).fail(function () {
       alert("Please put some text in your answer")
+    });
+  });
+
+  $('body').on('submit', '.vote_form', function (event) {
+    event.preventDefault();
+    var $voteForm = $(this)
+
+    $.ajax({
+      url: $voteForm.attr('action'),
+      method: $voteForm.attr('method'),
+      data: $voteForm.serialize()
+    }).done(function (params) {
+      $voteForm.closest('.container').find('span').text(params.points);
     });
   });
 });

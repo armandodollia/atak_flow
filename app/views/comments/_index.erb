@@ -1,7 +1,7 @@
 <% comments.each do |comment| %>
   <div class="container hoverable">
     <p><%= comment.body %></p>
-    <span class="badge"><%= points(comment) %> points</span>
+    <span class="badge" data-badge-caption="points"><%= points(comment) %></span>
     <!--passes the comment object into the vote partial to be parsed-->
     <%= erb :'/votes/_vote', locals: {model: comment} %>
   </div><br>

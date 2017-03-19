@@ -22,8 +22,7 @@ end
 post '/questions/:question_id/answers' do
   return redirect "questions/#{params[:question_id]}" if !logged_in?
   new_answer = current_question(params[:question_id]).answers.new(body: params[:answer], user_id: current_user.id)
-  puts "\n" * 20
-  p new_answer
+
   if new_answer.save!
     if request.xhr?
       erb :'answers/_answer', locals: {answer: new_answer}, layout: false
