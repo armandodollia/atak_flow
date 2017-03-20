@@ -1,0 +1,22 @@
+<% if @errors %>
+   <div class="error_container">
+       <p><strong> There be problem</strong></p>
+       <% @errors.each do |error| %>
+         <p><%= error %></p>
+       <% end %>
+   </div>
+<% end %>
+
+<% if logged_in? %>
+    <div class="container">
+      <form id="new_question_form" action="/questions" method="POST">
+        <label for="question_title">Title:</label>
+        <textarea id="question_title" name="title"></textarea>
+        <label for="question_text">Question:</label>
+        <textarea id="question_text" name="body"></textarea>
+        <input type="submit" class="button" value="Submit Question">
+      </form>
+    </div>
+  <% else %>
+    <p>YOU MUST BE LOGGED IN DUDE</p>
+  <% end %>
