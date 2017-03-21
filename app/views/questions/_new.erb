@@ -1,13 +1,9 @@
-<% if @errors %>
-   <%= erb :_errors, locals: {errors: @errors} %>
-<% end %>
-
 <div class="container">
   <form id="new_question_form" action="/questions" method="POST">
     <label for="question_title">Title:</label>
-    <input id="question_title" name="title">
+    <input id="question_title" name="question[title]">
     <label for="question_text">Question:</label>
-    <textarea id="question_text" name="body"></textarea>
+    <textarea id="question_text" name="question[body]"></textarea>
     <input type="submit" class="button" value="Submit Question">
   </form>
 </div>

@@ -1,23 +1,9 @@
-<% @questions.each do |question| %>
-  <% if question.solved? %>
-    <div class="solved-container container hoverable">
-  <% else %>
-    <div class="container hoverable">
+<div id="question-index-list">
+  <% @questions.each do |question| %>
+   <%= erb :'/questions/_index', locals: {question: question} %>
   <% end %>
-    <article id="<%= question.id %>" class="row">
-      <h3 class="card brown lighten-2 col s11 center">
-          <a class="black-text" href="/questions/<%= question.id %>"><%= question.title %></a>
-      </h3>
-      <div>
-        <span class="new badge green" data-badge-caption="points"><%= points(question) %></span>
-      </div>
-    </article>
-    <div class="row">
-      <p class="col s2"><%= question.comments.count %> Comments</p>
-      <p class="col s2"><%= question.answers.count %> Answers</p>
-    </div>
-  </div> <br>
-<% end %>
+</div>
 
-<a id="new_comment_button" href="/questions/new" class="waves-effect waves-light btn green center"><i class="material-icons left">input</i> New Question</a>
+<div id="question-index-actions" class="center">
+  <a id="new-question-link" href="/questions/new" class="waves-effect waves-light btn green center"><i class="material-icons left">input</i> New Question</a>
 </div>
