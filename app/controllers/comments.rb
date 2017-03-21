@@ -9,19 +9,23 @@ get '/questions/:question_id/comments' do
   end
 end
 
+before '/questions/:question_id/comments/new' do
+  redirect "/sessions/new" if !logged_in?
+end
+
 get '/questions/:question_id/comments/new' do
   @post_path = "/questions/#{params[:question_id]}/comments"
-  if logged_in?
-    erb :'/comments/new', locals: {path: @post_path}
+  if request.xhr?
+    erb :'/comments/_new', layout: false, locals: {post_path: @post_path}
   else
-    redirect "/sessions/new"
+    erb :'/comments/new'
   end
 end
 
 post '/questions/:question_id/comments' do
   @post_path = "/questions/#{params[:question_id]}/comments"
   new_comment = current_question(params[:question_id]).comments.new(body: params[:body], user_id: current_user.id)
-  
+
   if new_comment.save
     redirect "/questions/#{params[:question_id]}"
   else

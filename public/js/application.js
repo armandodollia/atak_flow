@@ -24,6 +24,21 @@ $(document).ready(function () {
     });
   });
 
+  // making the new comment form popup.
+  $('body').on('click', '.new_comment_button', function(event){
+    event.preventDefault();
+    var $button = $(this);
+    var url = $button.attr('href');
+
+    var request = $.ajax({
+      url: url,
+    });
+    request.done(function(response) {
+      console.log(response);
+      $button.after(response);
+      $button.hide();
+    });
+  });
 
   $('body').on('submit', '#new_answer_form', function (event) {
     var $answerForm = $('#new_answer_form')

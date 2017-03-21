@@ -10,9 +10,8 @@
         <% if !@question.comments.empty? %>
           <a class="comment-link" href="/questions/<%= @question.id %>/comments">Show Comments</a>
         <% else %>
-          <a id="new_comment_button" href="/questions/<%= @question.id %>/comments/new" class="waves-effect waves-light btn green"><i class="material-icons left">comment</i> New Comment</a>
+          <a href="/questions/<%= @question.id %>/comments/new" class="new_comment_button waves-effect waves-light btn green"><i class="material-icons left">comment</i> New Comment</a>
         <% end %>
-        <!-- VVV broken VVV -->
       </div>
     </div>
   </div>
@@ -41,7 +40,7 @@
 <div id='new_answer_form_container' class="container hoverable">
   <% if logged_in? %>
       <form id='new_answer_form' action='/questions/<%= @question.id %>/answers' method="post">
-        <input type="text" name="answer">
+        <textarea type="text" name="answer"></textarea>
         <input class="waves-effect waves-light btn" type="submit" value="Submit">
       </form>
   <% else %>

@@ -9,12 +9,16 @@ get '/answers/:answer_id/comments' do
   end
 end
 
+before '/answers/:answer_id/comments/new' do
+  redirect "/sessions/new" if !logged_in?
+end
+
 get '/answers/:answer_id/comments/new' do
   @post_path = "/answers/#{params[:answer_id]}/comments"
-  if logged_in?
-    erb :'/comments/new'
+  if request.xhr?
+    erb :'/comments/_new', layout: false, locals: {post_path: @post_path}
   else
-    redirect "/sessions/new"
+    erb :'/comments/new'
   end
 end
 
