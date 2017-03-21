@@ -24,7 +24,7 @@ end
 
 post '/answers/:answer_id/comments' do
   return redirect "/sessions/new" if !logged_in?
-  new_comment = Answer.find(params[:answers_id]).comments.new(body: params[:body], user_id: current_user.id)
+  new_comment = Answer.find(params[:answer_id]).comments.new(body: params[:body], user_id: current_user.id)
   if request.xhr?
     if new_comment.save
       erb :'/comments/_show', layout: false, locals: {comment: new_comment}
@@ -40,5 +40,4 @@ post '/answers/:answer_id/comments' do
       erb :'/comments/new'
     end
   end
-  binding.pry
 end

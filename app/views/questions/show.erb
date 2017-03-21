@@ -3,8 +3,10 @@
   <div class="card col s8 offset-s2">
     <div id="question_container" class="card-content">
       <span class="card-title"><%= @question.asker.username %> asked: </span>
-      <%= erb :'/votes/_vote', locals: {model: @question} %>
-      <span class="new badge green" data-badge-caption="points"><%= points(@question) %></span>
+      <div class="votable">
+        <%= erb :'/votes/_vote', locals: {model: @question} %>
+        <span class="new badge green" data-badge-caption="points"><%= points(@question) %></span>
+      </div>
       <p><%= @question.body %></p>
       <div class="card-action">
         <% if !@question.comments.empty? %>

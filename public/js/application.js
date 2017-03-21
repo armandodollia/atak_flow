@@ -3,9 +3,7 @@ $(document).ready(function () {
     event.preventDefault();
     var $link = $(this);
     var url = $link.attr('href');
-    var request = $.ajax({
-      url: url
-    })
+    var request = $.ajax({url: url});
     request.done(function(response){
       $link.after(response);
       $link.hide();
@@ -34,9 +32,7 @@ $(document).ready(function () {
     event.preventDefault();
     var $commentLink = $(this);
     var url = $commentLink.attr('href');
-    var request = $.ajax({
-      url: url
-    });
+    var request = $.ajax({url: url});
     request.done(function(response) {
       $commentLink.hide();
       $commentLink.closest('.card-action').append(response);
@@ -77,11 +73,11 @@ $(document).ready(function () {
   $('body').on('submit', '.vote_form', function (event) {
     event.preventDefault();
     var $form = $(this)
-    var form = formScrape($form);
+    var form = formScrape($(this));
 
     var request = $.ajax(form);
     request.done(function (params) {
-      $form.closest('.container').find('span').text(params.points);
+      $form.closest('.votable').find('.badge').text(params.points);
     });
   });
 });
@@ -111,25 +107,22 @@ function newCommentForm(e){
   request.done(function(response) {
     console.log(response);
     $button.after(response);
-    $button.remove();
+    $button.hide();
   })
 }
 
 function submitNewComment(e){
   e.preventDefault();
-  var $form = $(this)
-  var form = new formScrape($(this));
+  var $form = $(this);
+  var form = formScrape($(this));
 
-  var request = $.ajax({
-    url: form.url,
-    type: form.type,
-    data: form.data
-  });
+  var request = $.ajax(form);
   request.done(function(response) {
     console.log(response);
     $('.error_container').remove();
-    $form.closest('.card-action').append(response)
+    $(".new_comment_button").closest('.center').before(response);
     $form.closest('.container').remove();
+    $(".new_comment_button").show();
   });
   request.fail(function(response) {
     $('.error_container').remove();
