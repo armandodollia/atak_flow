@@ -17,11 +17,7 @@ $(document).ready(function () {
     var $form = $(this);
     var form = new formScrape($(this));
 
-    var request = $.ajax({
-      url: form.url,
-      method: form.type,
-      data: form.data
-    })
+    var request = $.ajax(form);
     request.done(function(response){
       $('.error_container').remove();
       $form.closest('div').remove();
@@ -67,11 +63,7 @@ $(document).ready(function () {
     var $form = $(this)
     var form = new formScrape($(this));
 
-    var request = $.ajax({
-      url: form.url,
-      method: form.type,
-      data: form.data
-    })
+    var request = $.ajax(form);
     request.done(function (answer) {
       $('#answers_container').append(answer);
       $('#new_answer_title').show()
@@ -85,13 +77,9 @@ $(document).ready(function () {
   $('body').on('submit', '.vote_form', function (event) {
     event.preventDefault();
     var $form = $(this)
-    var form = new formScrape($(this));
+    var form = formScrape($form);
 
-    var request = $.ajax({
-      url: form.url,
-      method: form.type,
-      data: form.data
-    })
+    var request = $.ajax(form);
     request.done(function (params) {
       $form.closest('.container').find('span').text(params.points);
     });
@@ -100,9 +88,17 @@ $(document).ready(function () {
 
 //******************HELPY THINGS I LIKE
 function formScrape (formObject){
-  this.url = formObject.attr('action');
-  this.type = formObject.attr('method');
-  this.data = formObject.serialize();
+  if (formObject.find('input').attr('name') === "_method"){
+    var realMethod = formObject.find('input').attr('value');
+  } else {
+    var realMethod = formObject.attr('method');
+  }
+  var scrape = {
+    url: formObject.attr('action'),
+    method: realMethod,
+    data: formObject.serialize()
+  };
+  return scrape
 }
 
 function newCommentForm(e){
@@ -113,8 +109,9 @@ function newCommentForm(e){
       url: url
     });
   request.done(function(response) {
+    console.log(response);
     $button.after(response);
-    $button.hide();
+    $button.remove();
   })
 }
 
@@ -129,10 +126,10 @@ function submitNewComment(e){
     data: form.data
   });
   request.done(function(response) {
+    console.log(response);
     $('.error_container').remove();
     $form.closest('.card-action').append(response)
     $form.closest('.container').remove();
-    $(".new_comment_button").show();
   });
   request.fail(function(response) {
     $('.error_container').remove();
