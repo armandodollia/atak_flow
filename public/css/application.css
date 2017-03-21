@@ -40,7 +40,7 @@
 
 .error_container {
     margin: 20px auto;
-    width: 600px;
+    max-width: 600px;
     padding: 0px 20px 20px 20px;
     border: 2px solid red;
     background: rgba(192, 120, 0, 0.8)

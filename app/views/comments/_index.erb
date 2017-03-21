@@ -1,13 +1,9 @@
 <% comments.each do |comment| %>
-  <div class="container hoverable">
-    <p><%= comment.body %></p>
-    <span class="badge" data-badge-caption="points"><%= points(comment) %></span>
-    <!--passes the comment object into the vote partial to be parsed-->
-    <%= erb :'/votes/_vote', locals: {model: comment} %>
-  </div><br>
+  <%= erb :'/comments/_show', locals: {comment: comment} %>
 <% end %>
+
   <div class="center">
-    <a class="new_comment_button waves-effect waves-light btn green" href="<%= @post %>">
+    <a class="new_comment_button waves-effect waves-light btn green" href="<%= path %>">
       <i class="material-icons left">comment</i> New Comment</a>
   </div>
 </div>

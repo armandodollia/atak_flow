@@ -3,22 +3,35 @@ get '/questions' do
   erb :'/questions/index'
 end
 
+before '/questions/new' do
+  return redirect "/sessions/new" if !logged_in?
+end
+
 get '/questions/new' do
-  if logged_in?
-    erb :'/questions/new'
+  if request.xhr?
+    erb :'questions/_new', layout: false
   else
-    redirect back
+    erb :'/questions/new'
   end
 end
 
 post '/questions' do
-  redirect back if !logged_in?
-  new_question = Question.new(title: params[:title], body: params[:body], user_id: current_user.id)
-  if new_question.save
-    redirect "/questions"
+  return redirect back if !logged_in?
+  new_question = Question.new(params[:question])
+  new_question.user_id = current_user.id
+  if request.xhr?
+    if new_question.save
+      erb :'/questions/_index', layout: false, locals: {question: new_question}
+    else
+      erb :_errors, layout: false, locals: {errors: new_question.errors.full_messages}
+    end
   else
-    @errors = new_question.errors.full_messages
-    erb :'/question/new'
+    if new_question.save
+      redirect "/questions"
+    else
+      @errors = new_question.errors.full_messages
+      erb :'/question/new'
+    end
   end
 end
 

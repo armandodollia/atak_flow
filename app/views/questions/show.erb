@@ -1,7 +1,7 @@
 <h2 class="card"><%= @question.title  %></h2>
 <div class="row">
   <div class="card col s8 offset-s2">
-    <div class="card-content">
+    <div id="question_container" class="card-content">
       <span class="card-title"><%= @question.asker.username %> asked: </span>
       <%= erb :'/votes/_vote', locals: {model: @question} %>
       <span class="new badge green" data-badge-caption="points"><%= points(@question) %></span>
@@ -34,16 +34,18 @@
   <% end %>
 </div>
 
-<div class="center">
-  <h4 id="new_answer_title" class=" waves-effect waves-light btn-large">Post Answer</h4>
-</div>
-<div id='new_answer_form_container' class="container hoverable">
-  <% if logged_in? %>
-      <form id='new_answer_form' action='/questions/<%= @question.id %>/answers' method="post">
-        <textarea type="text" name="answer"></textarea>
-        <input class="waves-effect waves-light btn" type="submit" value="Submit">
-      </form>
-  <% else %>
-      <p>You must be logged in to make a post</p>
-  <% end %>
+<div id="answer-actions">
+  <div class="center">
+    <h4 id="new_answer_title" class=" waves-effect waves-light btn-large">Post Answer</h4>
+  </div>
+  <div id='new_answer_form_container' class="container hoverable">
+    <% if logged_in? %>
+        <form id='new_answer_form' action='/questions/<%= @question.id %>/answers' method="post">
+          <textarea type="text" name="answer"></textarea>
+          <input class="waves-effect waves-light btn" type="submit" value="Submit">
+        </form>
+    <% else %>
+        <p>You must be logged in to make a post</p>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,18 @@
+<% if question.solved? %>
+  <div class="solved-container container hoverable">
+<% else %>
+  <div class="container hoverable">
+<% end %>
+  <article id="<%= question.id %>" class="row">
+    <h3 class="card brown lighten-2 col s11 center">
+      <a class="black-text" href="/questions/<%= question.id %>"><%= question.title %></a>
+    </h3>
+    <div>
+      <span class="new badge green" data-badge-caption="points"><%= points(question) %></span>
+    </div>
+  </article>
+  <div class="row">
+    <p class="col s2"><%= question.comments.count %> Comments</p>
+    <p class="col s2"><%= question.answers.count %> Answers</p>
+  </div>
+</div> <br>
