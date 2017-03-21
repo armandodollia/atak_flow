@@ -4,13 +4,14 @@
     <div class="votes">
       <form class="vote_form" action="/<%= model.class.to_s.downcase %>s/<%= model.id %>/votes" method="post">
         <input type="hidden" name="_method" value="put">
-        <button type="submit" value="up"><i class="tiny material-icons">thumb_up</i></input>
+        <input type="hidden" value="1" name="value">
+        <button type="submit" value="up"><i class="tiny material-icons">thumb_up</i></button>
       </form>
 
       <form class="vote_form" action="/<%= model.class.to_s.downcase %>s/<%= model.id %>/votes" method="post">
         <input type="hidden" name="_method" value="put">
         <input type="hidden" value="-1" name="value">
-        <button type="submit" value="down"><i class="tiny material-icons">thumb_down</i></input>
+        <button type="submit" value="down"><i class="tiny material-icons">thumb_down</i></button>
       </form>
     </div>
 <% end %>

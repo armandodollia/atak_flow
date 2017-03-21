@@ -1,5 +1,7 @@
 <div class="container hoverable">
   <p><%= comment.body %></p>
-  <span class="badge" data-badge-caption="points"><%= points(comment) %></span>
-  <%= erb :'/votes/_vote', locals: {model: comment} %>
+  <div class="votable">
+    <%= erb :'/votes/_vote', locals: {model: comment} %>
+    <span class="new badge green" data-badge-caption="points"><%= points(comment) %></span>
+  </div>
 </div><br>

@@ -2,8 +2,10 @@
   <div class="card col s8 offset-s2">
     <div class="card-content">
       <span class="card-title"><%= answer.answerer.username %> answered:</span>
-      <%= erb :'/votes/_vote', locals: {model: answer} %>
-      <span class="new badge green" data-badge-caption="points"><%= points(answer) %></span>
+      <div class="votable">
+        <%= erb :'/votes/_vote', locals: {model: answer} %>
+        <span class="new badge green" data-badge-caption="points"><%= points(answer) %></span>
+      </div>
       <p><%= answer.body %></p>
       <div class="card-action">
         <% if !answer.comments.empty? %>
