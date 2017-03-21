@@ -1,10 +1,5 @@
 $(document).ready(function () {
 // THIS DOESNT WORK, WILL REMAKE USING AJAX.
-  $('body').on("click", "#new_comment_button", function(event){
-    event.preventDefault()
-    $(this).hide();
-    $(".form_container").fadeIn("slow");
- });
 //this stuff does though
   $('body').on('click', '#new_answer_title', function (event) {
     var $answerFormContainer = $('#new_answer_form_container')
